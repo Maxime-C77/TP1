@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TagController!{% endblock %}
+
+{% block body %}
+
+<div>
+    <ul>
+        {% for tag in tags  %}
+            <p>{{tag.nom}} {{tag.articles}}</p>
+            <a href="{{path('app_tag', {nom: tag.nom})}}">{{tag.nom}}</a>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

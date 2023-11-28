@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AuteurController!{% endblock %}
+
+{% block body %}
+
+<div>
+    <ul>
+        {% for auteur in auteurs  %}
+            <p>{{auteur.nom}} {{auteur.liste_article}}</p>
+            <a href="{{path('app_auteur', {nom: auteur.nom})}}">{{auteur.nom}}</a>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

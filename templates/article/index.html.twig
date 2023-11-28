@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+
+<div>
+    <ul>
+    
+        {% for article in articles  %}
+            <p>{{article.titre}} {{article.auteur}}</p>
+            <a href="{{path('app_article', {titre: article.titre})}}">{{article.titre}}</a>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
