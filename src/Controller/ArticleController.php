@@ -2,23 +2,36 @@
 
 namespace App\Controller;
 
-//use App\Entity\Article;
-//use App\Form\ArticleType;
+use App\Entity\Article;
+use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
-//use Doctrine\ORM\EntityManagerInterface;
-//use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-//use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 //UserPasswordHasherInterface $UserPasswordHasher
 
 class ArticleController extends AbstractController
 {    
-    #[Route('/article', name: 'app_article')]
+
+    #[Route('/article', name: 'app_article_add')]
     public function index(ArticleRepository $article): Response
     {
-        dd($ajout->findAll());
+        $article = new Article();
+        $form = $this->createForm(ArticleType::class, $article);
+        //$form = $this->createForm(ArticleType::class, $id);
+
+        $this->addFlash('réussit', "l ajout à été éffectué");
+        //return $this->redirectToRoute('app_article');
+
+            
+        
+        return $this->render('article/index.html.twig', 
+        [
+            'form' => $form
+        ]);
     }
 
     #[Route('/article/{id<\d+>?3}', name:'app_article')]
@@ -36,19 +49,7 @@ class ArticleController extends AbstractController
             ]
         );
     }
-   /* #[Route('/article', name: 'app_article_add')]
-    public function index(ArticleRepository $article): Response
-    {
-        $article = new Article();
-        $form = $this->createForm(ArticleType::class, $article);
-       // $form = $this->createForm(ArticleType::class, $id);
 
-            
-        return $this->render('article/index.html.twig', 
-        [
-            'form' => $form
-        ]);
-    }*/
     
 
     /*#[Route('article/{id}', name: 'app_article_add')]
@@ -87,7 +88,11 @@ class ArticleController extends AbstractController
     }*/
     
     
-
+/*#[Route('/article', name: 'app_article')]
+    public function index(ArticleRepository $article): Response
+    {
+        dd($ajout->findAll());
+    }*/
     
     
 

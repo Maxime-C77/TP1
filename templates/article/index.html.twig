@@ -6,11 +6,7 @@
 
 <div>
     <ul>
-    
-        {% for article in articles  %}
-            <p>{{article.titre}} {{article.auteur}}</p>
-            <a href="{{path('app_article', {titre: article.titre})}}">{{article.titre}}</a>
-        {% endfor %}
+        {{form(form)}}
     </ul>
 </div>
 {% endblock %}

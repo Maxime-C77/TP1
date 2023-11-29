@@ -7,3 +7,7 @@ controllers:
 app_index:
     path: /
     controller: App\Controller\ArticleController::index
+
+edit_route:
+    path: /edit/{id}
+    controller: App\Controller\CompteController::edit

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Détails de l'entité</h1>
+
+    <a href="{{ path('modifier', {'id': entity.id}) }}">Modifier</a>
+
+    <h1>Modifier l'entité</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    <button type="submit">Modifier</button>
+
+    {{ form_end(form) }}
+{% endblock %}

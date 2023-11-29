@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CompteController!{% endblock %}
+
+{% block body %}
+   <h1>Informations</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Colonne 1</th>
+                <th>Colonne 2</th>
+                <!-- Ajoutez d'autres colonnes au besoin -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for users in user %}
+                <tr>
+                    <td>{{ User.id }}</td>
+                    <td>{{ User.email }}</td>
+                    <td>{{ User.roles }}</td>
+                    <td>{{ User.password }}</td>
+                    <!-- Ajoutez d'autres colonnes au besoin -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
